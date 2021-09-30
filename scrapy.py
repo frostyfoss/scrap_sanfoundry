@@ -2,18 +2,32 @@
 # Then create a Markdown friendly md file to make pdf directly
 # I like things offline, so made this...
 # and it was fun too!
-# on terminal just run the below command to execute the script
-# scrap.py https://www.sanfoundry.com/operating-system-questions-answers/
+# E.g. command:
+# python scrapy.py https://www.sanfoundry.com/operating-system-questions-answers/
+# python scrapy.py https://www.sanfoundry.com/operating-system-questions-answers-process-synchronization/
+# Make executable with: pyinstaller --onefile scrapy.py
+# cmd for executable: scrapy <url>
 
 import sys
 import requests
 from bs4 import BeautifulSoup
+from requests.exceptions import ConnectionError
 
-#URL = "https://www.sanfoundry.com/operating-system-questions-answers/"
+sys.tracebacklimit=0
+
+print('Welcome to Scrapy 1.0\n')
+
 if len(sys.argv) == 1:
-	quit()
+	print('No URL found!')
+	sys.exit(0)
 URL = sys.argv[1]
-page = requests.get(URL)
+#page = requests.get(URL)
+
+try:
+    page = requests.get(URL)
+except ConnectionError:
+    print ('Invalid URL!')
+    sys.exit(0)
 
 soup = BeautifulSoup(page.content, "lxml") # html.parser
 
@@ -175,9 +189,6 @@ writeToMdFile(strForMdWithExpla, 'output_with_explanation.md')
 writeToMdFile(strForMdPlainMD, 'output_plain_md.md')
 writeToMdFile(strForPlainText, 'output_plain_text.md')
 print('Writting Completed.')
-
-
-
 
 """
 structure of the object
