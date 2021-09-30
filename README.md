@@ -4,4 +4,5 @@ A Simple Python program to scrap all the question and answer of a single webpage
 Unzip the executable and use the command as:
 scrapy <url>
   
-e.g.: scrapy https://www.sanfoundry.com/operating-system-questions-answers/
+Example command:
+```scrapy https://www.sanfoundry.com/operating-system-questions-answers/```
