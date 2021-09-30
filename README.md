@@ -1,5 +1,5 @@
-# scrap_sanfoundry
-A Simple Python script to scrap all the question and answer from a sanfoundry.com url
+# Scrapy v1.0
+A Simple Python program to scrap all the question and answer of a single webpage from a sanfoundry.com domain.
 
 Unzip the executable and use the command as:
 scrapy <url>
