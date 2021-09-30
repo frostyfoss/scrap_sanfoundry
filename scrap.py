@@ -2,11 +2,17 @@
 # Then create a Markdown friendly md file to make pdf directly
 # I like things offline, so made this...
 # and it was fun too!
+# on terminal just run the below command to execute the script
+# scrap.py https://www.sanfoundry.com/operating-system-questions-answers/
 
+import sys
 import requests
 from bs4 import BeautifulSoup
 
-URL = "https://www.sanfoundry.com/operating-system-questions-answers/"
+#URL = "https://www.sanfoundry.com/operating-system-questions-answers/"
+if len(sys.argv) == 1:
+	quit()
+URL = sys.argv[1]
 page = requests.get(URL)
 
 soup = BeautifulSoup(page.content, "lxml") # html.parser
@@ -122,8 +128,8 @@ def makeMdObjectWithExplanation(mcqObject):
 				printStr += token1 + str(option) + token2 + '\n'
 			else:
 				printStr += str(option) + '\n'
-		printStr += '> ' + mcqobj['explanation'] + '\n'
-		printStr += token3 + '\n'
+		printStr += '> ' + mcqobj['explanation'] + '\n\n'
+		printStr += '\n\n' # here it has extra space
 	return printStr
 
 
@@ -136,6 +142,7 @@ def makeMdObjectWithPlainMD(mcqObject):
 			printStr += str(option) + '\n'
 		printStr += '> ' + 'Answer: ' + chr(97 + mcqobj['answer'] - 1) + '\n'
 		printStr += mcqobj['explanation'] + '\n\n'
+		printStr += '\n\n' # here it has extra space
 	return printStr
 
 
