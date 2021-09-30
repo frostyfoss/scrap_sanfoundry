@@ -95,7 +95,12 @@ def makeMcqObject():
 		mcqObj.append(dict)
 """
 sample output of makeMcqObject():
-[{'sn': 1, 'question': 'What is an operating system?', 'options': ['a) collection of programs that manages hardware resources', 'b) system service provider to the application programs', 'c) interface between the hardware and application programs', 'd) all of the mentioned'], 'answer': 4, 'explanation': 'Explanation: An Operating System acts as an intermediary between user/user applications/application programs and hardware. It is a program that manages hardware resources. It provides services to application programs.'}]
+[{'sn': 1, 'question': 'What is an operating system?', 
+'options': ['a) collection of programs that manages hardware resources', 'b) system service provider to the application programs', 
+'c) interface between the hardware and application programs', 'd) all of the mentioned'], 
+'answer': 4, 'explanation': 
+'Explanation: An Operating System acts as an intermediary between user/user applications/application programs and hardware. 
+It is a program that manages hardware resources. It provides services to application programs.'}]
 """
 
 
